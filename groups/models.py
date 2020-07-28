@@ -31,8 +31,6 @@ class Group(models.Model):
     class Meta:
         ordering = ['name']
 
-    pass
-
 
 class GroupMember(models.Model):
     group = models.ForeignKey(Group, related_name='memberships')
