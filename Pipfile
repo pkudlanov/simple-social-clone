@@ -9,6 +9,7 @@ verify_ssl = true
 django = "*"
 django-bootstrap4 = "*"
 misaka = "*"
+django-braces = "*"
 
 [requires]
 python_version = "3.8"
