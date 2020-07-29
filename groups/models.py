@@ -6,6 +6,7 @@ import misaka
 
 from django.contrib.auth import get_user_model
 from django import template
+
 User = get_user_model()
 register = template.Library()
 
