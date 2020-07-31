@@ -1,25 +1,25 @@
 {% load static %}
-<div class="post media">
-    <h3>{{ post.message_html|safe }}</h3>
-    <div class="media-body">
-        <strong>{{ post.user.username }}</strong>
-        <h5 class="media-heading">
+<div class="post media mt-3">
+    <h3 class="mr-5 post-username"><a href="{% url 'posts:for_user' username=post.user.username %}">@{{ post.user.username }}</a></h3>
+
+    <div class="media-body ml-5">
+        <h3>{{ post.message_html|safe }}</h3>
+        <h5 class="media-heading mt-0">
             <span class="username">
-                <a href="{% url 'posts:for_user' username=post.user.username %}"></a>
+                <a href="{% url 'posts:for_user' username=post.user.username %}">@{{ post.user.username }}</a>
             </span>
             <time class="time">
-                <a href="{% url 'posts:single' username=post.user.username pk=post.pk %}"></a>
+                <a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">{{ post.created_at }}</a>
             </time>
         </h5>
-        <div class="media-footer">
 
+        <div class="media-bottom mt-3">
             {% if user.is_authenticated and post.user == user %}
-                <a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="btn btn-secondary">
+                <a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="btn btn-danger">
                     <img src="{% static 'icons/x-circle.svg' %}" alt="Delete icon" aria-hidden="true">
-                    <span class="text-danger icon-label">Delete</span>
+                    <span class="icon-label">Delete</span>
                 </a>
             {% endif %}
-
         </div>
     </div>
 </div>
