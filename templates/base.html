@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
 
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">Star Social</a>
@@ -23,12 +23,12 @@
             <ul class="navbar-nav navbar-right">
 
                 {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link" href="#">Post</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Groups</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Create Group</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'posts:create' %}">Post</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'groups:all' %}">Groups</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'groups:create' %}">Create Group</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'accounts:logout' %}">Log Out</a></li>
                 {% else %}
-                    <li class="nav-item"><a class="nav-link" href="#">Groups</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'groups:all' %}">Groups</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}">Log In</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'accounts:signup' %}">Sign Up</a></li>
                 {% endif %}
@@ -45,6 +45,9 @@
         {% endblock content %}
     </div>
 
+    <canvas id="canvas"></canvas>
+
+    <script type="text/javascript" src="{% static 'simplesocial/js/master.js' %}"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

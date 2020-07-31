@@ -1,0 +1,14 @@
+body{
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+    color:white;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.post-username{
+    width: 150px;
+}
